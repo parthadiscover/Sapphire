@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="_nroot" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sapphire.org.controller.VendorLayoutController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="600.0" prefWidth="288.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToolBar prefHeight="43.0" prefWidth="288.0">
+                     <items>
+                        <TextField prefHeight="25.0" prefWidth="240.0" />
+                     </items>
+                  </ToolBar>
+                  <TableView prefHeight="551.0" prefWidth="288.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn prefWidth="287.0" text="VENDORS" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="600.0" prefWidth="996.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToolBar>
+                    <items>
+                      <Button mnemonicParsing="false" onAction="#handleNewVendor" prefHeight="33.0" prefWidth="86.0" text="Add New" />
+                    </items>
+                  </ToolBar>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

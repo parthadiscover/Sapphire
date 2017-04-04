@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="_nroot" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sapphire.org.controller.RootController">
+   <padding>
+      <Insets top="1.0" />
+   </padding>
+   <bottom>
+      <HBox cache="true" prefHeight="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="23.0" prefWidth="188.0" text="     STATUS BAR">
+               <font>
+                  <Font name="Monotype Corsiva" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <VBox cache="true" prefHeight="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label prefHeight="33.0" prefWidth="505.0" text="LOGO &amp; OTHER STUFFS">
+               <font>
+                  <Font name="Monotype Corsiva" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
