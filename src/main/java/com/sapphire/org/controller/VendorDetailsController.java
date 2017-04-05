@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 
 import com.sapphire.org.config.ViewFactory;
 import com.sapphire.org.constant.ViewPath;
+import com.sapphire.org.model.Vendor;
+import com.sapphire.org.service.VendorService;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -22,6 +24,9 @@ public class VendorDetailsController extends AbstractController {
 
 	@Autowired
 	public ViewFactory viewFactory;
+	
+	@Autowired
+	public VendorService vendorService;
 
 	@FXML
 	private Label _vendorDetHeaderLabel;
@@ -67,6 +72,9 @@ public class VendorDetailsController extends AbstractController {
 
 	@FXML
 	private Label _vendorPhoneLabel;
+	
+	@FXML
+	private Label _vendorCommentLabel;
 
 	private AnchorPane vendorDetails;
 
@@ -86,10 +94,12 @@ public class VendorDetailsController extends AbstractController {
 		_vendorCity.setVisible(false);
 		_vendorPin.setVisible(false);
 		_vendorPhone.setVisible(false);
+		_vendorComments.setVisible(false);
 
 		return vendorDetails;
 	}
-
+	
+	@FXML
 	public Node getVendorDetailsEditView() {
 
 		_vendorName.setVisible(true);
@@ -98,6 +108,7 @@ public class VendorDetailsController extends AbstractController {
 		_vendorCity.setVisible(true);
 		_vendorPin.setVisible(true);
 		_vendorPhone.setVisible(true);
+		_vendorComments.setVisible(true);
 
 		_vendorNameLabel.setVisible(false);
 		_vendorAddressLabel.setVisible(false);
@@ -105,8 +116,26 @@ public class VendorDetailsController extends AbstractController {
 		_vendorCityLabel.setVisible(false);
 		_vendorPinLabel.setVisible(false);
 		_vendorPhoneLabel.setVisible(false);
-
+		_vendorCommentLabel.setVisible(false);
 		return vendorDetails;
+	}
+	
+	
+	@FXML
+	public void saveVendorDetails(){
+		
+		System.out.println("Called Vendor Save");
+		
+		Vendor _vendor = new Vendor(_vendorName.getText(),
+									_vendorAddress.getText(),
+									_vendorState.getText(),									
+									_vendorPin.getText(),
+									_vendorCity.getText(),
+									_vendorPhone.getText(),
+									_vendorComments.getText()				
+								  );
+		vendorService.saveVendor(_vendor);
+		
 	}
 
 	@Override

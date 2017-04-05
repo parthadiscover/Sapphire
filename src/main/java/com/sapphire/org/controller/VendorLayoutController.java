@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.sapphire.org.config.ViewFactory;
 import com.sapphire.org.constant.ViewPath;
+import com.sapphire.org.model.Vendor;
 
 import javafx.collections.ObservableList;
 
@@ -14,6 +15,7 @@ import javafx.collections.ObservableList;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -29,6 +31,9 @@ public class VendorLayoutController  extends AbstractController{
 	public ViewFactory viewFactory;
 	
 	private  AnchorPane vendorLayout;
+	
+	@FXML
+	private TableView<Vendor>  _vendorListTable;
 
 	public VendorLayoutController() {
 	}
