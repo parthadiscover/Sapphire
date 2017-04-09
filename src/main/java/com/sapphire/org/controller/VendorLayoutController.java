@@ -55,9 +55,12 @@ public class VendorLayoutController  extends AbstractController{
 	private void initialize() {
 
 		_vendorTableColumn.setCellValueFactory(cellData -> cellData.getValue().getProperty(cellData.getValue().getVname()));
-		 vendorLayout = (AnchorPane)getParentNode();
-		 this.addVendorDetailsDisplayView();
+		 vendorLayout = (AnchorPane)getParentNode();		 
 		 this.displayVendorList();
+		 this.addVendorDetailsDisplayView();
+		 // Addind Vendor Selection Listner
+		 _vendorListTable.getSelectionModel().selectedItemProperty().addListener(
+	                (observable, oldValue, newValue) ->  vendorDetailsController.getVendorDetailsDisplayView(newValue));
 	}
 
 	/**
@@ -89,7 +92,15 @@ public class VendorLayoutController  extends AbstractController{
 	private void addVendorDetailsDisplayView(){
 		try {
 			Node vendorDetailsView = vendorDetailsController.loadView();
-			vendorDetailsController.getVendorDetailsDisplayView();		
+			//Setting the first elemnet in the Table list while first time populating
+			Vendor _firstItem = _vendorListTable.getItems().size() > 0 ? _vendorListTable.getItems().get(0) : null;	
+			System.out.println( _vendorListTable.getItems().size() );
+			if(_firstItem == null){
+				vendorDetailsController.getVendorDetailsEditView();
+			}else{
+				vendorDetailsController.getVendorDetailsDisplayView(_firstItem);	
+			}			
+			
 			ObservableList<Node> anchorList =  vendorLayout.getChildren();
 			BorderPane boderPane = (BorderPane)(anchorList.get(0));
 			VBox centreVbox = (VBox)boderPane.getCenter();		

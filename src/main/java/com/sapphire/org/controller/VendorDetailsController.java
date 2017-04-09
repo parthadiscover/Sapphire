@@ -89,7 +89,7 @@ public class VendorDetailsController extends AbstractController {
 		vendorDetails = (AnchorPane) getParentNode();
 	}
 
-	public Node getVendorDetailsDisplayView() {
+	public Node getVendorDetailsDisplayView(Vendor vendor) {
 
 		_vendorName.setVisible(false);
 		_vendorAddress.setVisible(false);
@@ -98,6 +98,28 @@ public class VendorDetailsController extends AbstractController {
 		_vendorPin.setVisible(false);
 		_vendorPhone.setVisible(false);
 		_vendorComments.setVisible(false);
+		
+		
+		
+		_vendorNameLabel.setVisible(true);
+		_vendorAddressLabel.setVisible(true);
+		_vendorStateLabel.setVisible(true);
+		_vendorCityLabel.setVisible(true);
+		_vendorPinLabel.setVisible(true);
+		_vendorPhoneLabel.setVisible(true);
+		_vendorCommentLabel.setVisible(true);
+		
+		_vendorNameLabel.setText(vendor.getVname());
+		_vendorAddressLabel.setText(vendor.getVaddress());
+		_vendorStateLabel.setText(vendor.getVstate());
+		_vendorCityLabel.setText(vendor.getVcity());
+		_vendorPinLabel.setText(vendor.getVpostalCode());
+		_vendorPhoneLabel.setText(vendor.getVphone());
+		_vendorCommentLabel.setText(vendor.getVcomments());
+		
+		
+		//Set Vendor Label
+		_vendorDetHeaderLabel.setText("Vendor Details ....");
 
 		return vendorDetails;
 	}
@@ -120,6 +142,9 @@ public class VendorDetailsController extends AbstractController {
 		_vendorPinLabel.setVisible(false);
 		_vendorPhoneLabel.setVisible(false);
 		_vendorCommentLabel.setVisible(false);
+		
+		//Set Vendor Label
+		_vendorDetHeaderLabel.setText("Add New Vendors.......");
 		return vendorDetails;
 	}
 	
@@ -137,8 +162,9 @@ public class VendorDetailsController extends AbstractController {
 									_vendorPhone.getText(),
 									_vendorComments.getText()				
 								  );
-		vendorService.saveVendor(_vendor);
+		Vendor _savedVendor = vendorService.saveVendor(_vendor);
 		vendorLayoutController.displayVendorList();
+		this.getVendorDetailsDisplayView(_savedVendor);
 		
 	}
 
