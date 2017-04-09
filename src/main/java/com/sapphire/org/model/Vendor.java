@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
+
 @Entity
 @Table(name = "VENDOR")
 public class Vendor {
@@ -112,6 +115,9 @@ public class Vendor {
 		this.vphone = vphone;
 	}
 
-	
+	public Property getProperty(String _strObj) {
+		return new SimpleStringProperty(_strObj);
+	}
+
 
 }

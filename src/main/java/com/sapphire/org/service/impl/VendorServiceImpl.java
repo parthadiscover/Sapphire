@@ -1,5 +1,7 @@
 package com.sapphire.org.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,10 +18,13 @@ public class VendorServiceImpl implements VendorService {
 	VendorRepository vendorRepository;
 
 	@Override
-	public void saveVendor(Vendor vendor) {
+	public Vendor saveVendor(Vendor vendor) {
+		return vendorRepository.save(vendor);
+	}
 
-		vendorRepository.save(vendor);
-		
+	@Override
+	public List<Vendor> getAllVendor() {
+		return vendorRepository.findAll();
 	}
 	
 	

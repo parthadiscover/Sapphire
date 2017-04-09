@@ -23,10 +23,13 @@ import javafx.scene.layout.GridPane;
 public class VendorDetailsController extends AbstractController {
 
 	@Autowired
-	public ViewFactory viewFactory;
+	private ViewFactory viewFactory;
 	
 	@Autowired
-	public VendorService vendorService;
+	private VendorService vendorService;
+	
+	@Autowired
+	private VendorLayoutController vendorLayoutController; 
 
 	@FXML
 	private Label _vendorDetHeaderLabel;
@@ -135,6 +138,7 @@ public class VendorDetailsController extends AbstractController {
 									_vendorComments.getText()				
 								  );
 		vendorService.saveVendor(_vendor);
+		vendorLayoutController.displayVendorList();
 		
 	}
 

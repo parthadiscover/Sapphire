@@ -19,7 +19,7 @@
                   </ToolBar>
                   <TableView fx:id="_vendorListTable" prefHeight="551.0" prefWidth="288.0" VBox.vgrow="ALWAYS">
                     <columns>
-                      <TableColumn prefWidth="287.0" text="VENDORS" />
+                      <TableColumn fx:id="_vendorTableColumn" prefWidth="287.0" text="VENDORS" />
                     </columns>
                   </TableView>
                </children>
