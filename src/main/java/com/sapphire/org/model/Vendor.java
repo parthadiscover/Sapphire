@@ -7,13 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
+
 @Entity
 @Table(name = "VENDOR")
 public class Vendor {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="VENDOR_ID")
-	private  Long vid;
+	private  Integer vid;
 	@Column(name="VENDOR_NAME")
 	private  String vname;
 	@Column(name="VENDOR_ADDRESS")
@@ -24,6 +28,8 @@ public class Vendor {
 	private  String vpostalCode;
 	@Column(name="VENDOR_CITY")
 	private  String vcity;
+	@Column(name="VENDOR_PHONE")
+	private  String vphone;
 	@Column(name="VENDOR_COMMENTS")
 	private  String vcomments;
 	
@@ -31,24 +37,25 @@ public class Vendor {
 		
 	}
 
-	public Vendor(String vname, String vaddress, String vstate, String vpostalCode, String vcity, String vcomments) {
+	public Vendor(String vname, String vaddress, String vstate, String vpostalCode, String vcity,String vphone, String vcomments) {
 
 		this.vname = vname;
 		this.vaddress = vaddress;
 		this.vstate = vstate;
 		this.vpostalCode = vpostalCode;
 		this.vcity = vcity;
+		this.vphone = vphone;
 		this.vcomments = vcomments;
 
 	}
 
 
 
-	public Long getVid() {
+	public Integer getVid() {
 		return vid;
 	}
 
-	public void setVid(Long vid) {
+	public void setVid(Integer vid) {
 		this.vid = vid;
 	}
 
@@ -100,6 +107,17 @@ public class Vendor {
 		this.vcomments = vcomments;
 	}
 
-	
+	public String getVphone() {
+		return vphone;
+	}
+
+	public void setVphone(String vphone) {
+		this.vphone = vphone;
+	}
+
+	public Property getProperty(String _strObj) {
+		return new SimpleStringProperty(_strObj);
+	}
+
 
 }
