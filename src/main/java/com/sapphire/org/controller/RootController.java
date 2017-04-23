@@ -35,7 +35,9 @@ public class RootController extends AbstractController{
 	private void initialize() {
 
 		borderPane = (BorderPane) getParentNode();
-		setVendorLayout();
+		completeLayout();
+		
+		
 	}
 	
 	
@@ -54,6 +56,12 @@ public class RootController extends AbstractController{
 	@Override
 	public Node loadView() throws IOException {
 		return viewFactory.load(ViewPath.ROOT_LAYOUT);
+	}
+
+	@Override
+	protected void completeLayout() {
+		// TODO Auto-generated method stub
+		setVendorLayout();
 	}
 	
 

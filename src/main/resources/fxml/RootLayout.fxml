@@ -14,9 +14,9 @@
    <bottom>
       <HBox cache="true" prefHeight="25.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="23.0" prefWidth="188.0" text="     STATUS BAR">
+            <Label prefHeight="23.0" prefWidth="279.0" text="    Copyright © 2017  Sapphire" textFill="#686868">
                <font>
-                  <Font name="Monotype Corsiva" size="15.0" />
+                  <Font name="Monotype Corsiva" size="13.0" />
                </font>
             </Label>
          </children>

@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -121,3 +120,4 @@ public class Vendor {
 
 
 }
+

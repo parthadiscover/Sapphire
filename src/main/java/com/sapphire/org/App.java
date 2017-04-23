@@ -51,6 +51,7 @@ public class App extends AbstractJavaFxApplicationSupport {
 		stage.setScene(new Scene(super.getRootNode()));
 		stage.setResizable(true);
 		stage.centerOnScreen();
+		stage.setFullScreen(true);
 		stage.show();
 
 		

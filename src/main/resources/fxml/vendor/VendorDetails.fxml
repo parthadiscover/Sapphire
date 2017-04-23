@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import org.controlsfx.glyphfont.*?>
 <?import javafx.scene.web.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -12,11 +13,7 @@
    <children>
       <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
-            <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" BorderPane.alignment="CENTER">
-              <items>
-                <Button fx:id="_vendorSaveBtn" mnemonicParsing="false" onAction="#saveVendorDetails" prefHeight="37.0" prefWidth="97.0" text="Save" />
-              </items>
-            </ToolBar>
+            <ToolBar fx:id="_vendorLayoutToolbar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="53.0" prefWidth="912.0" BorderPane.alignment="CENTER" />
          </bottom>
          <top>
             <VBox BorderPane.alignment="CENTER">
@@ -108,7 +105,11 @@
             </VBox>
          </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="400.0" />
+               </BorderPane.margin>
+            </Pane>
          </center>
       </BorderPane>
    </children>

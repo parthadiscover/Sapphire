@@ -3,19 +3,24 @@ package com.sapphire.org.controller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.sapphire.org.config.ViewFactory;
 import com.sapphire.org.constant.ViewPath;
+import com.sapphire.org.fxutils.BasicFxUtils;
+import com.sapphire.org.fxutils.ControlAttr;
 import com.sapphire.org.model.Vendor;
 import com.sapphire.org.service.VendorService;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -78,15 +83,21 @@ public class VendorDetailsController extends AbstractController {
 	
 	@FXML
 	private Label _vendorCommentLabel;
+	
+	@FXML
+	private ToolBar _vendorLayoutToolbar;
 
 	private AnchorPane vendorDetails;
+	
+	private Button _savehBtn;
 
 	public VendorDetailsController() {
 	}
 
 	@FXML
-	private void initialize() {
+	private void initialize() {		
 		vendorDetails = (AnchorPane) getParentNode();
+		completeLayout();
 	}
 
 	public Node getVendorDetailsDisplayView(Vendor vendor) {
@@ -117,6 +128,8 @@ public class VendorDetailsController extends AbstractController {
 		_vendorPhoneLabel.setText(vendor.getVphone());
 		_vendorCommentLabel.setText(vendor.getVcomments());
 		
+		//Disable save button
+		_savehBtn.setDisable(true);
 		
 		//Set Vendor Label
 		_vendorDetHeaderLabel.setText("Vendor Details ....");
@@ -143,6 +156,9 @@ public class VendorDetailsController extends AbstractController {
 		_vendorPhoneLabel.setVisible(false);
 		_vendorCommentLabel.setVisible(false);
 		
+		//Enable save button
+		_savehBtn.setDisable(false);
+		
 		//Set Vendor Label
 		_vendorDetHeaderLabel.setText("Add New Vendors.......");
 		return vendorDetails;
@@ -150,7 +166,7 @@ public class VendorDetailsController extends AbstractController {
 	
 	
 	@FXML
-	public void saveVendorDetails(){
+	private void saveVendorDetails(ActionEvent event){
 		
 		System.out.println("Called Vendor Save");
 		
@@ -162,15 +178,26 @@ public class VendorDetailsController extends AbstractController {
 									_vendorPhone.getText(),
 									_vendorComments.getText()				
 								  );
-		Vendor _savedVendor = vendorService.saveVendor(_vendor);
+		Vendor _savedVendor = vendorService.saveVendor(_vendor);		
+		getVendorDetailsDisplayView(_savedVendor);
 		vendorLayoutController.displayVendorList();
-		this.getVendorDetailsDisplayView(_savedVendor);
 		
 	}
 
 	@Override
 	public Node loadView() throws IOException {
 		return viewFactory.load(ViewPath.VIEW_DETAILS);
+	}
+
+	@Override
+	protected void completeLayout() {
+		// TODO Auto-generated method stub
+		
+		_savehBtn = (Button) BasicFxUtils.getSaveButton(new ControlAttr("SAVE",100d,50d));
+		_savehBtn.setPadding(new Insets(0, 10, 0, 0));
+		_savehBtn.setOnAction(this::saveVendorDetails);
+		_vendorLayoutToolbar.getItems().add(_savehBtn);
+		
 	}
 
 }

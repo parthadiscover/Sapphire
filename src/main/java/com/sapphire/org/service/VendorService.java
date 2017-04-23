@@ -9,5 +9,6 @@ public interface VendorService {
 	
 	public Vendor saveVendor(Vendor vendor);
 	public List<Vendor> getAllVendor();
-
+	public List<Vendor> searchVendor(Vendor vendor);
+	
 }

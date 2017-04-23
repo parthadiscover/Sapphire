@@ -12,30 +12,39 @@
          <left>
             <VBox prefHeight="600.0" prefWidth="288.0" BorderPane.alignment="CENTER">
                <children>
-                  <ToolBar prefHeight="43.0" prefWidth="288.0">
+                  <ToolBar fx:id="_vendorSearchToolbar" prefHeight="52.0" prefWidth="288.0">
                      <items>
-                        <TextField prefHeight="25.0" prefWidth="240.0" />
+                        <TextField fx:id="_vendorSearchText" prefHeight="25.0" prefWidth="240.0" />
                      </items>
                   </ToolBar>
                   <TableView fx:id="_vendorListTable" prefHeight="551.0" prefWidth="288.0" VBox.vgrow="ALWAYS">
                     <columns>
                       <TableColumn fx:id="_vendorTableColumn" prefWidth="287.0" text="VENDORS" />
                     </columns>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </TableView>
                </children>
+               <BorderPane.margin>
+                  <Insets left="5.0" />
+               </BorderPane.margin>
             </VBox>
          </left>
          <center>
             <VBox prefHeight="600.0" prefWidth="996.0" BorderPane.alignment="CENTER">
                <children>
-                  <ToolBar>
-                    <items>
-                      <Button mnemonicParsing="false" onAction="#handleNewVendor" prefHeight="33.0" prefWidth="86.0" text="Add New" />
-                    </items>
+                  <ToolBar fx:id="_vendorLayoutToolBar">
+                     <items>
+                        <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+                     </items>
                   </ToolBar>
                </children>
             </VBox>
          </center>
+         <right>
+            <Separator orientation="VERTICAL" prefHeight="600.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

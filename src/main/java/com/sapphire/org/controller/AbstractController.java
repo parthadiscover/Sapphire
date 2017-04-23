@@ -18,5 +18,7 @@ public abstract  class  AbstractController {
 	}
 
 	public abstract Node loadView() throws IOException;
+	
+	protected abstract void completeLayout();
 
 }
