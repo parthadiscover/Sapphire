@@ -11,7 +11,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 @Entity
 @Table(name = "VENDOR")
-public class Vendor {
+public class Vendor extends BaseModel{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -114,9 +114,7 @@ public class Vendor {
 		this.vphone = vphone;
 	}
 
-	public Property getProperty(String _strObj) {
-		return new SimpleStringProperty(_strObj);
-	}
+	
 
 
 }

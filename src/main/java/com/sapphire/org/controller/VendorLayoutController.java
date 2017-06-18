@@ -70,7 +70,7 @@ public class VendorLayoutController  extends AbstractController{
 	@FXML
 	private void initialize() {
 
-		_vendorTableColumn.setCellValueFactory(cellData -> cellData.getValue().getProperty(cellData.getValue().getVname()));
+		_vendorTableColumn.setCellValueFactory(cellData -> cellData.getValue().getStringProperty(cellData.getValue().getVname()));
 		 vendorLayout = (AnchorPane)getParentNode();	
 		 this.completeLayout();
 		 this.displayVendorList();

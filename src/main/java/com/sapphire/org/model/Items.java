@@ -1,16 +1,15 @@
 package com.sapphire.org.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-
-public class Items {
+@Entity
+@Table(name = "INVENTORY")
+public class Items extends BaseModel{
 	
 	
 	@Id
@@ -30,21 +29,24 @@ public class Items {
 	@Column(name="ITEM_RATE")
 	private  Double itemRate;
 	@Column(name="ITEM_VAT_PERC")
-	private  Double itenVat;
-	@Column(name="CREATED_USER")
-	private  Integer createdUser;
-	@Column(name="CREATED_TIMESTAMP")
-	private  String createdTimeStamp;
-	@Column(name="MODIFIED_USER")
-	private  Integer modifiedUser;
-	@Column(name="MODIFIED_TIMESTAMP")
-	private  String  modifiedTimeStamp;
+	private  Double itemVat;
+//	@Column(name="CREATED_USER")
+//	private  Integer createdUser;
+//	@Column(name="CREATED_TIMESTAMP")
+//	private  String createdTimeStamp;
+//	@Column(name="MODIFIED_USER")
+//	private  Integer modifiedUser;
+//	@Column(name="MODIFIED_TIMESTAMP")
+//	private  String  modifiedTimeStamp;
 	@Column(name="DELETED")
 	private  String  isDeleted;
 	
 	
+	public Items(){}
 	
-	
+	public Items(String itemBrcd){
+		this.itemBrcd = itemBrcd;
+	}
 	
 	
 	public Integer getItemId() {
@@ -83,36 +85,36 @@ public class Items {
 	public void setItemRate(Double itemRate) {
 		this.itemRate = itemRate;
 	}
-	public Double getItenVat() {
-		return itenVat;
+	public Double getItemVat() {
+		return itemVat;
 	}
-	public void setItenVat(Double itenVat) {
-		this.itenVat = itenVat;
+	public void setItemVat(Double itemVat) {
+		this.itemVat = itemVat;
 	}
-	public Integer getCreatedUser() {
-		return createdUser;
-	}
-	public void setCreatedUser(Integer createdUser) {
-		this.createdUser = createdUser;
-	}
-	public String getCreatedTimeStamp() {
-		return createdTimeStamp;
-	}
-	public void setCreatedTimeStamp(String createdTimeStamp) {
-		this.createdTimeStamp = createdTimeStamp;
-	}
-	public Integer getModifiedUser() {
-		return modifiedUser;
-	}
-	public void setModifiedUser(Integer modifiedUser) {
-		this.modifiedUser = modifiedUser;
-	}
-	public String getModifiedTimeStamp() {
-		return modifiedTimeStamp;
-	}
-	public void setModifiedTimeStamp(String modifiedTimeStamp) {
-		this.modifiedTimeStamp = modifiedTimeStamp;
-	}
+//	public Integer getCreatedUser() {
+//		return createdUser;
+//	}
+//	public void setCreatedUser(Integer createdUser) {
+//		this.createdUser = createdUser;
+//	}
+//	public String getCreatedTimeStamp() {
+//		return createdTimeStamp;
+//	}
+//	public void setCreatedTimeStamp(String createdTimeStamp) {
+//		this.createdTimeStamp = createdTimeStamp;
+//	}
+//	public Integer getModifiedUser() {
+//		return modifiedUser;
+//	}
+//	public void setModifiedUser(Integer modifiedUser) {
+//		this.modifiedUser = modifiedUser;
+//	}
+//	public String getModifiedTimeStamp() {
+//		return modifiedTimeStamp;
+//	}
+//	public void setModifiedTimeStamp(String modifiedTimeStamp) {
+//		this.modifiedTimeStamp = modifiedTimeStamp;
+//	}
 	public String getIsDeleted() {
 		return isDeleted;
 	}
@@ -122,14 +124,6 @@ public class Items {
 	
 	
 	
-	public Property getStringProperty(String _strObj) {
-		return new SimpleStringProperty(_strObj);
-	}
-	public Property getIntegerProperty(Integer _intObj) {
-		return new SimpleIntegerProperty(_intObj);		
-	}
-	public Property getDoubleProperty(Double _dbObj) {
-		return new SimpleDoubleProperty(_dbObj);		
-	}
+	
 	
 }
