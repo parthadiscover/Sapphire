@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="_nroot" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sapphire.org.controller.OrderLayoutController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="600.0" prefWidth="328.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToolBar fx:id="_orderSearchToolbar" prefHeight="52.0" prefWidth="288.0">
+                     <items>
+                        <TextField fx:id="_orderSearchText" prefHeight="25.0" prefWidth="240.0" />
+                        <ChoiceBox prefWidth="50.0" />
+                     </items>
+                  </ToolBar>
+                  <GridPane prefHeight="191.0" prefWidth="328.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="106.0" text="CUSTOMER NAME :" GridPane.rowIndex="1" />
+                        <Label text="ADDRESS  :" GridPane.rowIndex="2" />
+                        <Label text="PHONE # :" GridPane.rowIndex="3" />
+                        <Label text="CUSTOMER ID :" />
+                     </children>
+                  </GridPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="5.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="600.0" prefWidth="806.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ToolBar fx:id="_orderLayoutToolBar">
+                     <items>
+                        <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+                     </items>
+                  </ToolBar>
+               </children>
+            </VBox>
+         </center>
+         <right>
+            <Separator orientation="VERTICAL" prefHeight="600.0" prefWidth="13.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

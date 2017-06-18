@@ -26,7 +26,6 @@ public final class QuerySpecification {
 				          throw new IllegalStateException("Check Vendor Details");
 				        }
 				        List<Predicate> predicates = new ArrayList<Predicate>();
-				      //  System.out.println(_VendorStaticModel.vname.getName());
 				        predicates.add(builder.like(root.get("vname"), getContainsLikePattern(_vendor.getVname())));				    
 				        Predicate[] predicatesArray = new Predicate[predicates.size()];
 				        return builder.and(predicates.toArray(predicatesArray));

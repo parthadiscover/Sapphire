@@ -24,6 +24,11 @@ public class RootController extends AbstractController{
 	@Autowired
 	private VendorLayoutController vendorLayoutController;
 	
+	
+	@Autowired
+	private OrderLayoutController orderLayoutController;
+	
+	
 	private BorderPane borderPane ;
 	
 	
@@ -34,7 +39,7 @@ public class RootController extends AbstractController{
 	@FXML
 	private void initialize() {
 
-		borderPane = (BorderPane) getParentNode();
+		borderPane = (BorderPane) getParentNode(); 
 		completeLayout();
 		
 		
@@ -53,6 +58,19 @@ public class RootController extends AbstractController{
 		 
 	 }
 
+	 private void setOrderLayout() {
+		 
+		 AnchorPane orderLayout = null;
+		try {
+			orderLayout = (AnchorPane) orderLayoutController.loadView();
+			borderPane.setCenter(orderLayout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		 
+	 }
+	 
+	 
 	@Override
 	public Node loadView() throws IOException {
 		return viewFactory.load(ViewPath.ROOT_LAYOUT);
@@ -61,7 +79,8 @@ public class RootController extends AbstractController{
 	@Override
 	protected void completeLayout() {
 		// TODO Auto-generated method stub
-		setVendorLayout();
+		//setVendorLayout();
+		setOrderLayout();
 	}
 	
 

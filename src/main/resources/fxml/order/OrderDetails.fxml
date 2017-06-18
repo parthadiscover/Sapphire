@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.controlsfx.glyphfont.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="_nroot" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sapphire.org.controller.OrderDetailsController">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="1600.0">
+                     <children>
+                        <Label fx:id="_vendorDetHeaderLabel" text="Add New Order......." textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Pane HBox.hgrow="ALWAYS" />
+                        <Button fx:id="_orderScanBtn" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#processScan" text="SCAN">
+                           <graphic>
+                              <TextField fx:id="_orderScanText" />
+                           </graphic></Button>
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <ScrollPane prefViewportHeight="250.0" prefViewportWidth="895.0" VBox.vgrow="ALWAYS">
+                     <content>
+                        <TableView fx:id="_orderItemsTableView" maxWidth="1550.0" prefWidth="1550.0">
+                          <columns>
+                            <TableColumn fx:id="_orderItemsTableViewCol_SrNo" maxWidth="39.0" prefWidth="32.0" resizable="false" text="#" />
+                            <TableColumn fx:id="_orderItemsTableViewCol_PrdNo" maxWidth="199.0" prefWidth="199.0" text="PRODUCT_NO" />
+                              <TableColumn fx:id="_orderItemsTableViewCol_Desc" maxWidth="642.0" minWidth="0.0" prefWidth="632.0" text="DESCRIPTION" />
+                              <TableColumn fx:id="_orderItemsTableViewCol_Qty" prefWidth="119.0" text="QTY" />
+                              <TableColumn fx:id="_orderItemsTableViewCol_UnitPrc" prefWidth="128.0" text="UNIT PRC" />
+                              <TableColumn fx:id="_orderItemsTableViewCol_NetPrc" prefWidth="145.0" text="NET PRC" />
+                              <TableColumn fx:id="_orderItemsTableViewCol_VatAmt" prefWidth="129.0" text="VAT AMT" />
+                              <TableColumn fx:id="_orderItemsTableViewCol_GrsAmt" prefWidth="190.0" text="GROSS PRC" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
